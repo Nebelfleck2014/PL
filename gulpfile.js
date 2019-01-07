@@ -9,11 +9,12 @@ const rename = require('gulp-rename');
 const del = require('del');
 const pngquant = require('imagemin-pngquant');
 const cache = require('gulp-cache');
+const notify = require('gulp-notify');
 const autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('sass', function (done) {
   return gulp.src('src/sass/**/*.sass')
-    .pipe(sass())
+    .pipe(sass({outputStyle: 'expanded'}).on("error", notify.onError()))
     .pipe(rename({suffix: '.min', prefix : ''}))
     .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
     .pipe(gulp.dest('src/css'))
@@ -38,17 +39,9 @@ gulp.task('scripts', function(done) {
         ])
         .pipe(concat('libs.min.js')) // Собираем их в кучу в новом файле libs.min.js
         .pipe(uglify()) // Сжимаем JS файл
-        .pipe(gulp.dest('src/js')); // Выгружаем в папку app/js
+        .pipe(gulp.dest('src/js')); // Выгружаем в папку src/js
         done();
 })
-
-gulp.task('css-libs', gulp.parallel('sass', async function(done) {
-    return gulp.src('src/css/libs.css') // Выбираем файл для минификации
-        .pipe(cssnano()) // Сжимаем
-        .pipe(rename({suffix: '.min'})) // Добавляем суффикс .min
-        .pipe(gulp.dest('src/css')); // Выгружаем в папку app/css
-        done();
-}));
 
 
 gulp.task('watch', function(done) {
@@ -88,12 +81,12 @@ gulp.task('img', function() {
 gulp.task('build', gulp.parallel('sass', 'scripts', function(done) {
 
     var buildCss = gulp.src([ // Переносим CSS стили в продакшен
-        'src/css/main.css',
+        'src/css/main.min.css',
         'src/css/libs.min.css'
         ])
     .pipe(gulp.dest('build/css'))
 
-    var buildFonts = gulp.src('app/fonts/**/*') // Переносим шрифты в продакшен
+    var buildFonts = gulp.src('src/fonts/**/*') // Переносим шрифты в продакшен
     .pipe(gulp.dest('build/fonts'))
 
     var buildJs = gulp.src('src/js/**/*') // Переносим скрипты в продакшен
@@ -108,4 +101,4 @@ gulp.task('clear', function () {
     return cache.clearAll();
 })
 
-gulp.task('default', gulp.parallel('watch', 'browser-sync', 'css-libs', 'scripts'));
+gulp.task('default', gulp.parallel('watch', 'browser-sync', 'scripts'));
