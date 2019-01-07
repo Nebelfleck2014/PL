@@ -12,8 +12,9 @@ const cache = require('gulp-cache');
 const autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('sass', function (done) {
-  return gulp.src('src/sass/**/*.scss')
+  return gulp.src('src/sass/**/*.sass')
     .pipe(sass())
+    .pipe(rename({suffix: '.min', prefix : ''}))
     .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
     .pipe(gulp.dest('src/css'))
     .pipe(browserSync.reload({stream: true}))
