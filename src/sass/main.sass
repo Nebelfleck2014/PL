@@ -35,7 +35,7 @@ body textarea:required:valid
 	color: #666
 
 html, body
-	height: 100%
+	max-width: 100vw
 
 body
 	font-size: 18px
@@ -44,6 +44,8 @@ body
 	line-height: 1.65
 	font-family: $default-font
 	overflow-x: hidden
+	margin: 0
+	padding: 0
 
 .img-responsive
 	display: block
@@ -57,5 +59,42 @@ body
 	background-color: $accent-color
 	color: #fff
 
+a
+	text-decoration: none
+
+.visually-hidden
+	position: absolute
+	width: 1px
+	height: 1px
+	margin: -1px
+	border: 0
+	padding: 0
+	clip: rect(0 0 0 0)
+	overflow: hidden
+
+.main-header
+	display: flex
+	justify-content: space-around
+	background-color: #161f26
+	//opacity: 0.3
+
+.main-header__logo
+	margin-right: 170px
+	svg
+		margin: 27px auto 43px auto
+
+.main-nav
+	margin-top: 46px
+	margin-bottom: 46px
+	&__list
+		display: flex
+		margin: 0
+	&__item
+		list-style: none
+		a
+			color: $white
+			font-family: $default-font
+			font-size: 18px
+			margin-right: 80px
 
 @import "media"
