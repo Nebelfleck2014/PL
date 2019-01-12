@@ -1,5 +1,26 @@
-@import "_mixins/font-face"
+@font-face
+    font-family: "Open Sans"
+    src: local("Open Sans"),
+      src: url("../fonts/opensans/opensans.woff2") format("woff2")
+      src: url("../fonts/opensans/opensans.woff") format("woff")
+    font-weight: 400
+    font-style: normal
+    font-display: swap
 
-+font-face("opensans", "../fonts/opensans/opensans")
-+font-face("opensans", "../fonts/opensansbold/opensansbold", bold)
-+font-face("opensans", "../fonts/opensanslight/opensanslight", 300)
+@font-face
+    font-family: "Open Sans"
+    src: local("Open Sans Bold"),
+      src: url("../fonts/opensansbold/opensansbold.woff2") format("woff2")
+      src: url("../fonts/opensansbold/opensansbold.woff") format("woff")
+    font-weight: 700
+    font-style: normal
+    font-display: swap
+
+@font-face
+    font-family: "Open Sans"
+    src: local("Open Sans Light"),
+      src: url("../fonts/opensanslight/opensanslight.woff2") format("woff2")
+      src: url("../fonts/opensanslight/opensanslight.woff") format("woff")
+    font-weight: 300
+    font-style: normal
+    font-display: swap

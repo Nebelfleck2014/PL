@@ -37,6 +37,10 @@ body textarea:required:valid
 html, body
 	max-width: 100vw
 
+img
+	max-width: 100%
+	height: auto
+
 body
 	font-size: 18px
 	min-width: 320px
@@ -72,16 +76,23 @@ a
 	clip: rect(0 0 0 0)
 	overflow: hidden
 
+.container
+	height: 853px
+	background-image: url(../img/back-desktop.jpg)
+	background-repeat: no-repeat
+	background-size: cover
+
 .main-header
 	display: flex
 	justify-content: space-around
-	background-color: #161f26
-	//opacity: 0.3
+	background-color: rgba($dark, 0.3)
 
 .main-header__logo
 	margin-right: 170px
 	svg
 		margin: 27px auto 43px auto
+		&:hover
+			color: $accent-color
 
 .main-nav
 	margin-top: 46px
@@ -96,5 +107,107 @@ a
 			font-family: $default-font
 			font-size: 18px
 			margin-right: 80px
+			&:hover
+				color: $green
+			&:active
+				color: #6a747f
+
+.download
+	max-height: 753px
+
+.button
+	margin-left: -30px
+	display: inline-block
+	border: 3px solid $white
+	color: #fff
+	text-decoration: none
+	padding: 15px 45px
+	font-size: 21px
+	font-weight: 700
+	line-height: 18px
+	border-radius: 25px
+	text-align: center
+	position: relative
+	outline: none
+	transition: background-color .1s ease
+	cursor: pointer
+	margin-bottom: 65px
+	&:hover
+		background-color: $white
+		color: $accent-color
+	&:active
+		background-color: $white
+		color: #f2becc
+
+.download-list
+		margin: 0
+		margin-left: 30px
+		padding: 0
+		width: 230px
+		display: flex
+		justify-content: space-between
+		align-items: center
+		list-style: none
+
+.download-app
+	padding-left: 120px
+	&__title
+		width: 280px
+		text-align: center
+		padding: 0
+		margin: 0
+		margin-bottom: 50px
+		color: $white
+		font-family: "Open Sans Light", sans-serif
+		font-size: 50px
+		font-weight: 300
+		line-height: 1.5
+		padding-top: 110px
+
+.available
+	margin-top: 52px
+	width: 350px
+	color: $white
+	font-family: "Open Sans"
+	font-size: 18px
+	font-weight: 300
+	text-align: center
+
+.example
+	position: absolute
+	top: 208px
+	right: -15px
+	margin: 0
+	padding: 0
+
+
+.slogan
+	padding: 0
+	margin: 0
+	color: #283645
+	font-family: "Open Sans", sans-serif
+	font-size: 50px
+	font-weight: 300
+	text-align: center
+	line-height: 1.5
+	padding-top: 78px
+	padding-bottom: 75px
+
+
+.info
+	text-align: center
+	&__list
+		display: flex
+	&__item
+		list-style: none
+	&__item h3
+		font-size: 30px
+		font-weight: 700
+		line-height: 30px
+		color: $black
+		padding-top: 55px
+	&__item p
+		font-family: "Open Sans", sans-serif
+		line-height: 30px
 
 @import "media"
