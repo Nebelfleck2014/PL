@@ -198,6 +198,7 @@ a
 	text-align: center
 	&__list
 		display: flex
+		padding: 0
 	&__item
 		list-style: none
 	&__item h3
@@ -209,5 +210,52 @@ a
 	&__item p
 		font-family: "Open Sans", sans-serif
 		line-height: 30px
+		color: $grey
+		padding-left: 30px
+		padding-right: 30px
+
+.effect
+	position: relative
+	min-height: 430px
+	&__inner
+		width: 525px
+		margin-left: 485px
+		padding-top: 114px
+		margin-bottom: 118px
+		&:before
+			content: ""
+			display: block
+			position: absolute
+			top: 70px
+			left: 170px
+			height: 345px
+			width: 298px
+			background-image: url(../img/timer.jpg)
+			background-repeat: no-repeat
+			background-size: 238.5px
+		&::after
+			content: '24'
+			position: absolute
+			display: block
+			font-size: 96px
+			color: $accent-color
+			top: 150px
+	    font-weight: 700
+			left: 230px
+			
+
+
+	&__title
+		font-size: 30px
+		font-weight: 700
+		line-height: 30px
+	&__desc
+		line-height: 30px
+		color: $grey
+	&__link
+		color: $accent-color
+		&:hover
+			color: $grey
+
 
 @import "media"
