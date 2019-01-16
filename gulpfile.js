@@ -25,7 +25,7 @@ gulp.task('sass', function (done) {
 gulp.task('browser-sync', function(done) { // Создаем таск browser-sync
     browserSync({ // Выполняем browser Sync
         server: { // Определяем параметры сервера
-            baseDir: 'src' // Директория для сервера - app
+            baseDir: 'src' // Директория для сервера - src
         },
         notify: false // Отключаем уведомления
     });
@@ -57,7 +57,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('img', function() {
-    return gulp.src('src/img/**/*') // Берем все изображения из app
+    return gulp.src('src/img/**/*') // Берем все изображения из src
         .pipe(imagemin({ // Сжимаем их с наилучшими настройками
             interlaced: true,
             progressive: true,
@@ -68,7 +68,7 @@ gulp.task('img', function() {
 });
 
 gulp.task('img', function() {
-    return gulp.src('src/img/**/*') // Берем все изображения из app
+    return gulp.src('src/img/**/*') // Берем все изображения из src
         .pipe(cache(imagemin({  // Сжимаем их с наилучшими настройками с учетом кеширования
             interlaced: true,
             progressive: true,
