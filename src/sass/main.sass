@@ -295,10 +295,13 @@ a
 .prices
 	text-align: center
 	min-height: 534px
+	background-image: url(../img/shape_2.jpg)
+	background-repeat: no-repeat
 
 table
 	border-collapse: collapse
 	margin: 160px auto
+	background-color: $white
 
 td
 	border: 1px solid $grey
@@ -347,10 +350,39 @@ td
 			color: $accent-color
 .map
 	position: relative
-	&triangle
-		position: absolute
-		top: 20px 
+	&__js
+		width: 100%
 
+.main-footer
+	min-height: 200px
+
+.main-footer
+	&__inner
+		display: flex
+		justify-content: space-around
+	&__pink-logo
+		margin-top: 80px
+
+.social
+	&__list
+		padding: 0
+		margin-top: 80px
+		width: 172px
+		display: flex
+		justify-content: space-between
+
+	&__item
+		list-style: none
+		border: 3px solid #eaebec
+		border-radius: 50%
+		padding: 12px 13px
+		&:nth-child(2n)
+			padding: 12px 15px
+
+.page-footer__copyright
+	margin-top: 85px
+	&span
+		
 
 
 @import "media"
